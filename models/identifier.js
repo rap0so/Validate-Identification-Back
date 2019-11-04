@@ -1,16 +1,16 @@
 const mongoose = require('mongoose')
-const validateCpf = require('../helpers/cpfValidator')
-const validateCnpj = require('../helpers/cnpjValidator')
+const { validateCpf, validateCnpj } = require('../helpers/validators')
 const Schema = mongoose.Schema
 
-const cpfSchema = new Schema({
+const identifierSchema = new Schema({
   number: { type: String, required: true },
-  blacklisted: { type: Boolean, default: false }
+  blacklisted: { type: Boolean, default: false },
+  type: { type: String, required: true }
 }, {
   timestamps: true
 })
 
-cpfSchema.pre('save', async function (next) {
+identifierSchema.pre('save', async function (next) {
   const self = this
   const thisNumber = this.number
 
@@ -29,7 +29,10 @@ cpfSchema.pre('save', async function (next) {
 
   const foundSameData = await self.constructor.findOne({ number: this.number })
   if (foundSameData) return next('cpf / cnpj already exists')
+
+  this.type = currentDataLength === 11 ? 'cpf' : 'cnpj'
+
   return next()
 })
 
-module.exports = mongoose.model('cpf', cpfSchema)
+module.exports = mongoose.model('identifier', identifierSchema)
