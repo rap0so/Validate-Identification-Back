@@ -1,6 +1,6 @@
 const chai = require('chai')
 const spies = require('chai-spies')
-const validateBody = require('../helpers/validateBody')
+const { validateBody } = require('../helpers/validators')
 const handleUnexpectedError = require('../helpers/handleUnexpectedError')
 const baseResponse = require('../helpers/baseResponse')
 
