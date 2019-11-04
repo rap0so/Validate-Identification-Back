@@ -1,7 +1,7 @@
 module.exports = {
   apps: [{
     name: 'Api Dooile',
-    script: 'app.js',
+    script: 'index.js',
 
     instances: 1,
     autorestart: true,
