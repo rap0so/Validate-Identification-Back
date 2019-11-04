@@ -22,13 +22,11 @@ describe('Suite of cpf controller', () => {
   beforeEach(() => {
     mockCpf = {
       number: '38636664020',
-      blacklisted: true,
-      type: 'cpf'
+      blacklisted: true
     }
     mockCnpj = {
       number: '53941466000158',
-      blacklisted: false,
-      type: 'cnpj'
+      blacklisted: false
     }
   })
   describe('/GET cpf & cnpj', () => {

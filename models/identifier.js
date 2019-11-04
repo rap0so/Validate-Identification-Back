@@ -5,7 +5,7 @@ const Schema = mongoose.Schema
 const identifierSchema = new Schema({
   number: { type: String, required: true },
   blacklisted: { type: Boolean, default: false },
-  type: { type: String, required: true }
+  type: { type: String }
 }, {
   timestamps: true
 })
