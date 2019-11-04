@@ -1,8 +1,8 @@
 const app = require('express')()
 const bodyParser = require('body-parser')
 const routes = require('./routes')
-const connectDb = require('./models/config')
-const PORT = 5003
+const connectDb = require('./config/database')
+const PORT = (process.env.NODE_ENV === 'test' && 5010) || 5003
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
