@@ -42,7 +42,7 @@ npm run test:coverage
 
 ## Author
 
-👤 **Rap0s0**
+👤 **William G**
 
 - Website: https://www.linkedin.com/in/william-godoy-4bb919b5/
 - Github: [@Rap0so](https://github.com/Rap0so)
